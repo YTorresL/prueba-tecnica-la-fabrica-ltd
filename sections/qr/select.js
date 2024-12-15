@@ -1,6 +1,6 @@
 import { Card } from '@/components/qr/card'
 import { Types } from '@/data/qrTypes'
-import { Phone } from '@/components/qr/phone'
+import { Phone } from '@/components/qr/phone/container'
 
 export function SelectType() {
   return (

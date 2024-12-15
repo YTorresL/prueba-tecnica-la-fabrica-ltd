@@ -4,7 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger
 } from '@/components/ui/accordion'
-import { Phone } from '@/components/qr/phone'
+import { Phone } from '@/components/qr/phone/container'
 
 export function Design() {
   return (

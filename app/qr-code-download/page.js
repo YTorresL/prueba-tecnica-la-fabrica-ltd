@@ -1,8 +1,5 @@
 'use client'
 
-import { Footer } from '@/components/qr/footer'
-import { Header } from '@/components/qr/header'
-
 export default function Page() {
   return (
     <>

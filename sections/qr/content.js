@@ -1,7 +1,7 @@
 import { Pdf } from '@/components/qr/content/pdf'
 import { VCard } from '@/components/qr/content/vCard'
 import { Website } from '@/components/qr/content/website'
-import { Phone } from '@/components/qr/phone'
+import { Phone } from '@/components/qr/phone/container'
 
 export const ComponentsMap = {
   website: Website,
