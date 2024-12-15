@@ -50,3 +50,11 @@ export const uploadFile = (file) => {
   const task = storageRef.put(file)
   return task
 }
+
+export const updateQr = (id, data) => {
+  try {
+    return db.collection('qr').doc(id).update(data)
+  } catch (error) {
+    console.error('Error updating document: ', error)
+  }
+}
