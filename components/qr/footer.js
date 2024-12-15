@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation'
 import { Stepper } from '@/data/qrHeader'
 
 export function Footer() {
-  const { form, setStep, step } = useForm()
+  const { form, setStep, step, triggerUpdate } = useForm()
   const router = useRouter()
 
   const handleBack = () => {
@@ -22,6 +22,7 @@ export function Footer() {
       const nextStep = step + 1 // Calculamos el próximo paso
       setStep(nextStep) // Actualizamos el estado del paso
       router.push(Stepper[nextStep - 1].link) // Navegamos a la ruta correspondiente
+      nextStep === Stepper.length && triggerUpdate() // Actualizamos el estado de la vista previa
     }
   }
 
