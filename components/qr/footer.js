@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation'
 import { Stepper } from '@/data/qrHeader'
 
 export function Footer() {
-  const { form, setStep, step, triggerUpdate } = useForm()
+  const { form, setStep, step, triggerUpdate, url } = useForm()
   const router = useRouter()
 
   const handleBack = () => {
@@ -32,7 +32,7 @@ export function Footer() {
         Back
       </Button>
       <Button
-        disabled={step === Stepper.length || (step === 2 && !form.file)}
+        disabled={step === 2 && !url}
         onClick={() => handleNext()}
         className={step === Stepper.length ? 'hidden' : ''}
       >
