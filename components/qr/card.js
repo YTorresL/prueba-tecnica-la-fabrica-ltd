@@ -16,6 +16,8 @@ export function Card({ data }) {
     <div
       className="p-4 border border-gray-200 rounded-lg cursor-pointer"
       onClick={() => handleClick()}
+      onMouseOver={() => setForm((prev) => ({ ...prev, type: data.slug }))}
+      onMouseLeave={() => setForm((prev) => ({ ...prev, type: '' }))}
       href={data.link}
     >
       <h3>{data.title}</h3>

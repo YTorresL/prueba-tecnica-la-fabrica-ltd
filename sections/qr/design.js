@@ -4,11 +4,12 @@ import {
   AccordionItem,
   AccordionTrigger
 } from '@/components/ui/accordion'
+import { Phone } from '@/components/qr/phone'
 
 export function Design() {
   return (
-    <div className="flex w-full">
-      <form className="flex flex-col gap-3 w-3/5">
+    <div className="flex">
+      <form className="flex flex-col gap-3 w-2/3">
         <Accordion type="single" collapsible>
           <AccordionItem value="item-1">
             <AccordionTrigger>
@@ -24,6 +25,7 @@ export function Design() {
           </AccordionItem>
         </Accordion>
       </form>
+      <Phone />
     </div>
   )
 }

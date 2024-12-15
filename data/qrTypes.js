@@ -5,7 +5,8 @@ export const Types = [
     description: 'Link to any website URL',
     phoneContent: 'Website QR Example',
     link: '/qr-code-generator/website',
-    slug: 'website'
+    slug: 'website',
+    icon: '🌐'
   },
   {
     id: 2,
@@ -13,7 +14,8 @@ export const Types = [
     description: 'Show a PDF',
     phoneContent: 'PDF QR Example',
     link: '/qr-code-generator/pdf',
-    slug: 'pdf'
+    slug: 'pdf',
+    icon: '📄'
   },
   {
     id: 3,
@@ -21,6 +23,7 @@ export const Types = [
     description: 'Share your digital business card',
     phoneContent: 'vCard QR Example',
     link: '/qr-code-generator/vcard',
-    slug: 'vcard'
+    slug: 'vcard',
+    icon: '📇'
   }
 ]
