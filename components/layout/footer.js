@@ -35,21 +35,18 @@ export function Footer() {
                 Create QR Code
               </div>
               <a
-                hreflang="en"
                 className="text-sm text-white text-opacity-80 hover:text-opacity-100 block"
                 href="/plans-and-pricing"
               >
                 Plans and Pricing
               </a>
               <a
-                hreflang="en"
                 className="text-sm text-white text-opacity-80 hover:text-opacity-100 block"
                 href="/faq"
               >
                 FAQs
               </a>
               <a
-                hreflang="en"
                 className="text-sm text-white text-opacity-80 hover:text-opacity-100 block"
                 href="mailto:help@qrcode-koala.com"
               >
@@ -59,28 +56,24 @@ export function Footer() {
             <div className="space-y-2">
               <p className="text-sm font-semibold text-white">Terms</p>
               <a
-                hreflang="en"
                 className="text-sm text-white text-opacity-80 hover:text-opacity-100 block"
                 href="/terms"
               >
                 Terms of Service
               </a>
               <a
-                hreflang="en"
                 className="text-sm text-white text-opacity-80 hover:text-opacity-100 block"
                 href="/privacy-policy"
               >
                 Privacy Policy
               </a>
               <a
-                hreflang="en"
                 className="text-sm text-white text-opacity-80 hover:text-opacity-100 block"
                 href="/cookie-policy"
               >
                 Cookie Policy
               </a>
               <a
-                hreflang="en"
                 className="text-sm text-white text-opacity-80 hover:text-opacity-100 block"
                 href="/refund-policy"
               >
@@ -90,28 +83,24 @@ export function Footer() {
             <div className="space-y-2">
               <p className="text-sm font-semibold text-white">Contact Us</p>
               <a
-                hreflang="en"
                 className="text-sm text-white text-opacity-80 hover:text-opacity-100 block"
                 href="mailto:help@qrcode-koala.com"
               >
                 Support
               </a>
               <a
-                hreflang="en"
                 className="text-sm text-white text-opacity-80 hover:text-opacity-100 block"
                 href="mailto:sales@qrcode-koala.com"
               >
                 Sales
               </a>
               <a
-                hreflang="en"
                 className="text-sm text-white text-opacity-80 hover:text-opacity-100 block"
                 href="mailto:public_relations@qrcode-koala.com"
               >
                 Public Relations
               </a>
               <a
-                hreflang="en"
                 className="text-sm text-white text-opacity-80 hover:text-opacity-100 block"
                 href="mailto:general_inquires@qrcode-koala.com"
               >

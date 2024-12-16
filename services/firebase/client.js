@@ -58,3 +58,12 @@ export const updateQr = (id, data) => {
     console.error('Error updating document: ', error)
   }
 }
+
+export const getQr = async (id) => {
+  try {
+    const qr = await db.collection('qr').doc(id).get()
+    return qr.data()
+  } catch (error) {
+    console.error('Error getting document: ', error)
+  }
+}

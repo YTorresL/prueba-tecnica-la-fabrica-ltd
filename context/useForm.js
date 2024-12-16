@@ -1,5 +1,6 @@
 'use client'
 import { addQr, updateQr } from '@/services/firebase/client'
+import { usePathname } from 'next/navigation'
 import { createContext, useState, useEffect } from 'react'
 
 export const FormContext = createContext()
@@ -14,7 +15,7 @@ const initForm = {
   description: '',
   website: '',
   button: '',
-  frame: ''
+  logo: ''
 }
 
 export function FormProvider({ children }) {
@@ -24,18 +25,34 @@ export function FormProvider({ children }) {
   const [url, setUrl] = useState(null)
   const [loading, setLoading] = useState(false)
 
+  console.log(form)
+
   const [isFormValid, setIsFormValid] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [isUpdated, setIsUpdated] = useState(false)
 
-  console.log(id)
-  console.log(form)
+  const pathname = usePathname()
 
   // Valida si el formulario cumple los requisitos mínimos
   useEffect(() => {
     const isValidForm = form.type && form.file
     setIsFormValid(isValidForm)
   }, [form])
+
+  console.log(step)
+
+  useEffect(() => {
+    const pathSegments = pathname.split('/') // Divide la ruta por "/"
+    const typeParam =
+      pathSegments[pathSegments.indexOf('qr-code-generator') + 1]
+    if (typeParam) {
+      setForm((prev) => ({
+        ...prev,
+        type: typeParam // Asigna el parámetro "type" al formulario
+      }))
+      setStep(2)
+    }
+  }, [pathname])
 
   useEffect(() => {
     if (isFormValid && !isSubmitted) {

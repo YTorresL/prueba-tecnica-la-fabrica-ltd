@@ -1,7 +1,7 @@
 'use client'
 import { useForm } from '@/hooks/useForm'
 import { Button } from '@/components/ui/button'
-import { useState } from 'react'
+import { use, useEffect, useState } from 'react'
 import QRCode from 'react-qr-code'
 import { View } from './view'
 import { usePathname } from 'next/navigation'
@@ -25,6 +25,12 @@ export function Phone() {
     setQr(true)
     setPreview(false)
   }
+
+  useEffect(() => {
+    if (pathname === '/qr-code-design') {
+      handleQr()
+    }
+  }, [pathname])
 
   return (
     <div
@@ -82,7 +88,20 @@ export function Phone() {
 
           {!isType && preview && <View data={form} />}
 
-          {qr && <QRCode value={url} size={180} />}
+          {qr && (
+            <>
+              <QRCode value={url} size={180} />
+              {form.logo && (
+                <figure className="absolute w-16 h-16 orverflow-hidden top-20 left-1/2 transform -translate-x-1/2">
+                  <img
+                    src={form.logo}
+                    alt="logo"
+                    className="w-full h-full object-cover"
+                  />
+                </figure>
+              )}
+            </>
+          )}
         </div>
         <div className="bg-phone bg-no-repeat bg-contain bg-center w-full h-full z-50 absolute top-0"></div>
       </div>

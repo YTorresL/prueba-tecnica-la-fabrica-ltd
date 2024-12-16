@@ -9,14 +9,14 @@ export function Header() {
 
   return (
     <header className="fixed top-0 w-full flex justify-between items-center border-b border-gray-200 h-[4rem] px-5 md:px-10 backdrop-blur-lg z-10 bg-white/70 backdrop-saturate-150">
-      <figure className="w-10">
+      <Link className="w-10" href="/">
         <img
           alt="QR KOALA Logo"
           width="28"
           height="28"
           src="/qr_koala_logo.webp"
         />
-      </figure>
+      </Link>
       <ol className="flex items-center w-full p-3 space-x-2 justify-center text-sm font-medium text-center sm:p-4 sm:space-x-4 rtl:space-x-reverse">
         {Stepper.map((step) => (
           <Link

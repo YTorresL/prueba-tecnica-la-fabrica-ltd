@@ -1,8 +1,16 @@
+'use client'
 import { Button } from '@/components/ui/button'
 import { Typography, TYPO_STYLES } from '@/components/common/typography'
 import { IconArrow } from '@/assets/icons/arrow'
 
 export function Hero() {
+  const handleClick = () => {
+    const qrElement = document.getElementById('qr')
+    if (qrElement) {
+      qrElement.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
   return (
     <section
       id="hero"
@@ -16,7 +24,7 @@ export function Hero() {
           Easily create, track, and manage your QR codes.
         </Typography>
       </div>
-      <Button className="px-10 min-w-24 h-12 space-x-2">
+      <Button className="px-10 min-w-24 h-12 space-x-2" onClick={handleClick}>
         <Typography
           variant={TYPO_STYLES.VARIANT.BODY}
           className={'font-normal'}
