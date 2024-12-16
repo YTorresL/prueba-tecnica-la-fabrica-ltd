@@ -15,7 +15,7 @@ const initForm = {
   description: '',
   website: '',
   button: '',
-  frame: ''
+  logo: ''
 }
 
 export function FormProvider({ children }) {
@@ -24,6 +24,8 @@ export function FormProvider({ children }) {
   const [id, setId] = useState('')
   const [url, setUrl] = useState(null)
   const [loading, setLoading] = useState(false)
+
+  console.log(form)
 
   const [isFormValid, setIsFormValid] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
