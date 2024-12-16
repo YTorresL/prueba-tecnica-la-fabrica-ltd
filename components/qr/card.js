@@ -22,7 +22,9 @@ export function Card({ data }) {
       href={data.link}
     >
       <div className="flex text-center flex-row md:flex-col items-center justify-start md:justify-center gap-2 md:gap-3">
-        <div className="w-14 h-14 p-2 lg:w-20 lg:h-20 lg:p-3 bg-black rounded-full border-2 border-black group-hover:border-white"></div>
+        <div className="w-14 h-14 p-2 flex items-center justify-center lg:w-20 lg:h-20 lg:p-3 bg-black rounded-full border-2 border-black group-hover:border-white">
+          {data.icon}
+        </div>
         <div>
           <Typography
             variant={TYPO_STYLES.VARIANT.CARD}

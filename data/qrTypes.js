@@ -1,3 +1,5 @@
+import { IconPdf } from '@/assets/icons/pdf'
+
 export const Types = [
   {
     id: 2,
@@ -6,6 +8,6 @@ export const Types = [
     phoneContent: 'PDF QR Example',
     link: '/qr-code-generator/pdf',
     slug: 'pdf',
-    icon: '📄'
+    icon: <IconPdf className="w-10 h-10" fill="#fff" />
   }
 ]
