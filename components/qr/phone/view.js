@@ -100,8 +100,8 @@ export function View({ data }) {
               <iframe
                 src={data.file}
                 width="100%"
-                height="300px"
-                className="rounded-lg w-full h-auto border-none"
+                height="100%"
+                className="rounded-lg w-full h-full border-none"
               ></iframe>
             ) : (
               <img

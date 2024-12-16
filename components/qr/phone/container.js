@@ -1,7 +1,7 @@
 'use client'
 import { useForm } from '@/hooks/useForm'
 import { Button } from '@/components/ui/button'
-import { useState } from 'react'
+import { use, useEffect, useState } from 'react'
 import QRCode from 'react-qr-code'
 import { View } from './view'
 import { usePathname } from 'next/navigation'
@@ -25,6 +25,12 @@ export function Phone() {
     setQr(true)
     setPreview(false)
   }
+
+  useEffect(() => {
+    if (pathname === '/qr-code-design') {
+      handleQr()
+    }
+  }, [pathname])
 
   return (
     <div
