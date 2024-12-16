@@ -39,7 +39,7 @@ export function Footer() {
             variant={TYPO_STYLES.VARIANT.MINI}
             className="font-normal group-hover:text-white text-black"
           >
-            {Stepper[step - 1].title}
+            {Stepper[step > 1 ? step - 2 : 0].title}
           </Typography>
         </Button>
         <Button
