@@ -30,7 +30,7 @@ const PDF_STATES = {
 const colorPalettes = [
   {
     id: 1,
-    background: '#000000',
+    background: '#e0e0e0',
     button: '#5D2DB5'
   },
   {
@@ -132,6 +132,24 @@ export function Pdf() {
     )
     setPalettes(updatedPalettes)
   }
+
+  useEffect(() => {
+    handleChange({
+      target: {
+        name: 'backgroundColor',
+        value: background
+      }
+    })
+  }, [background])
+
+  useEffect(() => {
+    handleChange({
+      target: {
+        name: 'buttonColor',
+        value: button
+      }
+    })
+  }, [button])
 
   return (
     <form className="flex flex-col gap-3 w-2/3">
@@ -372,12 +390,12 @@ export function Pdf() {
                 />
               </div>
               <div className="grid w-full items-center gap-1.5 bg-gray-100 border border-gray-300 p-3 rounded-md">
-                <Label htmlFor="pdfTile" className="text-base text-gray-600">
+                <Label htmlFor="pdfTitle" className="text-base text-gray-600">
                   PDF title
                 </Label>
                 <Input
-                  id="pdfTile"
-                  name="pdfTile"
+                  id="pdfTitle"
+                  name="pdfTitle"
                   type="text"
                   placeholder="E.g. Annual Report 2021"
                   className="bg-white shadow-none !border-gray-300"
@@ -418,7 +436,7 @@ export function Pdf() {
               </div>
               <div className="grid w-full items-center gap-1.5 bg-gray-100 border border-gray-300 p-3 rounded-md">
                 <Label htmlFor="pdfTile" className="text-base text-gray-600">
-                  Website
+                  Button
                 </Label>
                 <Input
                   id="button"
