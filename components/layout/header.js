@@ -1,15 +1,20 @@
-import { Button } from '../ui/button'
+import { TYPO_STYLES, Typography } from '../common/typography'
 
 export function Header() {
   return (
-    <header className=" p-4 border-b flex justify-between items-center leading-5">
-      <div>
-        <h1 className="">Icon</h1>
-        <p className="text-xs">QR KOALA</p>
-      </div>
-      <div className="flex">
-        <Button>Entrar</Button>
-        <Button>Registrar</Button>
+    <header className="border-b flex justify-between items-center h-[4rem] px-5 md:px-10 backdrop-blur-lg sticky top-0 z-10 bg-white/70 backdrop-saturate-150">
+      <div className="w-10 flex items-center gap-3">
+        <img
+          src="/qr_koala_logo.webp"
+          alt="hero"
+          className="w-full h-auto object-contain mx-auto"
+        />
+        <Typography
+          variant={TYPO_STYLES.VARIANT.CAPTION}
+          className="flex-shrink-0"
+        >
+          QR KOALA
+        </Typography>
       </div>
     </header>
   )

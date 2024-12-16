@@ -15,6 +15,9 @@ import { Label } from '@/components/ui/label'
 import { useForm } from '@/hooks/useForm'
 import { uploadFile } from '@/services/firebase/client'
 import { useEffect, useState } from 'react'
+import { IconDesign } from '@/assets/icons/design'
+import { IconInformation } from '@/assets/icons/information'
+import { Typography, TYPO_STYLES } from '@/components/common/typography'
 
 const PDF_STATES = {
   ERROR: -1,
@@ -27,7 +30,6 @@ export function Pdf() {
   const [pdf, setPdf] = useState(null)
   const { handleChange, form } = useForm()
   const [pdfState, setPdfState] = useState(PDF_STATES.NONE)
-  console.log(form)
 
   useEffect(() => {
     if (pdfState === PDF_STATES.SUCCESS) {
@@ -71,20 +73,23 @@ export function Pdf() {
       <Accordion type="single" collapsible>
         <AccordionItem
           value="item-1"
-          className="bg-white px-5 rounded-lg border"
+          className="bg-white px-5 rounded-lg border border-gray-300"
         >
           <AccordionTrigger className="!no-underline">
-            <figure className="p-1 border rounded-lg">
+            <figure className="p-1 border border-black rounded-md">
               <IconPdf className="w-10 h-10" />
             </figure>
 
             <div className="w-full ml-5">
-              <h2 className="text-lg font-semibold">
+              <Typography tag="h2" variant={TYPO_STYLES.VARIANT.BODY}>
                 PDF File<span className="text-red-500"> *</span>
-              </h2>
-              <p className="text-base text-gray-400 font-normal -mt-1">
+              </Typography>
+              <Typography
+                variant={TYPO_STYLES.VARIANT.MINI}
+                className="font-normal text-gray-400"
+              >
                 Upload the PDF file you want to display.
-              </p>
+              </Typography>
             </div>
           </AccordionTrigger>
           <AccordionContent>
@@ -113,7 +118,7 @@ export function Pdf() {
                 onDragOver={(e) => e.preventDefault()}
               />
             </div>
-            <div className="flex items-center space-x-2 mt-5">
+            <div className="flex items-center space-x-2 mt-5 bg-gray-100 border border-gray-300 p-4 rounded-md">
               <Checkbox id="terms2" disabled />
               <label
                 htmlFor="terms2"
@@ -127,12 +132,12 @@ export function Pdf() {
       </Accordion>
       <Accordion type="single" collapsible>
         <AccordionItem
-          value="item-1"
-          className="bg-white px-5 rounded-lg border"
+          value="item-2"
+          className="bg-white px-5 rounded-lg border border-gray-300"
         >
           <AccordionTrigger className="!no-underline">
             <figure className="p-1 border rounded-lg">
-              <IconPdf className="w-10 h-10" />
+              <IconDesign className="w-10 h-10" />
             </figure>
 
             <div className="w-full ml-5">
@@ -149,19 +154,22 @@ export function Pdf() {
       </Accordion>
       <Accordion type="single" collapsible>
         <AccordionItem
-          value="item-1"
-          className="bg-white px-5 rounded-lg border"
+          value="item-3"
+          className="bg-white px-5 rounded-lg border border-gray-300"
         >
           <AccordionTrigger className="!no-underline">
             <figure className="p-1 border rounded-lg">
-              <IconPdf className="w-10 h-10" />
+              <IconInformation className="w-10 h-10" />
             </figure>
 
             <div className="w-full ml-5">
               <h2 className="text-lg font-semibold">PDF information</h2>
-              <p className="text-base text-gray-400 font-normal -mt-1">
+              <Typography
+                variant={TYPO_STYLES.VARIANT.MINI}
+                className="font-normal text-gray-400"
+              >
                 Add a some context to your PDF.
-              </p>
+              </Typography>
             </div>
           </AccordionTrigger>
           <AccordionContent>

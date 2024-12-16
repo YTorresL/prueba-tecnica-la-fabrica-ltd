@@ -29,6 +29,7 @@ export function FormProvider({ children }) {
   const [isUpdated, setIsUpdated] = useState(false)
 
   console.log(id)
+  console.log(form)
 
   // Valida si el formulario cumple los requisitos mínimos
   useEffect(() => {

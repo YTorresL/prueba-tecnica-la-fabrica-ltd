@@ -1,6 +1,5 @@
 import { FormProvider } from '@/context/useForm'
 import './globals.css'
-import 'normalize.css/normalize.css'
 
 export const metadata = {
   title: 'Prueba técnica | fullstack',

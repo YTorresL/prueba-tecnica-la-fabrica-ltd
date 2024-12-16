@@ -8,8 +8,15 @@ export function Header() {
   const currentStep = Stepper.find((s) => s.id === step)
 
   return (
-    <header className="fixed top-0 w-full flex justify-between border-b border-gray-200 bg-white">
-      <h1>icon</h1>
+    <header className="fixed top-0 w-full flex justify-between items-center border-b border-gray-200 h-[4rem] px-5 md:px-10 backdrop-blur-lg z-10 bg-white/70 backdrop-saturate-150">
+      <figure className="w-10">
+        <img
+          alt="QR KOALA Logo"
+          width="28"
+          height="28"
+          src="/qr_koala_logo.webp"
+        />
+      </figure>
       <ol className="flex items-center w-full p-3 space-x-2 justify-center text-sm font-medium text-center sm:p-4 sm:space-x-4 rtl:space-x-reverse">
         {Stepper.map((step) => (
           <Link
@@ -20,7 +27,7 @@ export function Header() {
             }`}
             key={step.id}
             href={
-              form.type && form.type.length && step.id === 2
+              form.type.length && step.id === 2
                 ? step.link + form.type
                 : step.link
             }
