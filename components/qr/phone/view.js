@@ -38,7 +38,7 @@ export function View({ data }) {
     <div
       className={`${
         isViewer
-          ? 'space-y-3 md:space-y-5 max-w-lg mx-auto relative h-fit min-h-dvh'
+          ? 'space-y-3 md:space-y-5 max-w-lg mx-auto relative h-fit min-h-dvh text-center'
           : 'w-full h-full text-center rounded-[38px] bg-white relative mobile-scrollbar'
       }`}
     >
