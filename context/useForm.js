@@ -92,7 +92,7 @@ export function FormProvider({ children }) {
   // Genera la URL una vez que se obtiene el ID
   useEffect(() => {
     if (id) {
-      setUrl(`${window.location.origin}/qr-view/${id}`)
+      setUrl(`${window.location.origin}/qr-viewer/${id}`)
     }
   }, [id])
 
