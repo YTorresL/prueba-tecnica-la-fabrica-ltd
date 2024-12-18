@@ -16,7 +16,7 @@ export default function Page() {
     if (!form.type || !form.file) {
       router.push('/qr-code-generator')
     }
-  }, [form])
+  }, [])
 
   return (
     <>

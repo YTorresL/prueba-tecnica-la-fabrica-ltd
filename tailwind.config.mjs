@@ -10,7 +10,7 @@ const config = {
   theme: {
     extend: {
       backgroundImage: {
-        phone: "url('/phone.png')"
+        phone: "url('/phone.webp')"
       },
       keyframes: {
         'accordion-down': {

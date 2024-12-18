@@ -1,7 +1,8 @@
 import { usePathname } from 'next/navigation'
+import Image from 'next/image'
+import { Typography, TYPO_STYLES } from '@/components/common/typography'
 
 const isColorDark = (color) => {
-  // Convertir el color HEX a RGB
   const hexToRgb = (hex) => {
     const bigint = parseInt(hex.slice(1), 16)
     const r = (bigint >> 16) & 255
@@ -12,9 +13,8 @@ const isColorDark = (color) => {
 
   const { r, g, b } = hexToRgb(color)
 
-  // Calcular luminancia relativa
   const luminance = 0.2126 * r + 0.7152 * g + 0.0722 * b
-  return luminance < 128 // Si es menor a 128, es oscuro
+  return luminance < 128
 }
 
 export function View({ data }) {
@@ -55,30 +55,21 @@ export function View({ data }) {
           } ${textColor}`}
         >
           <div className="relative z-[1] space-y-2 px-6 py-10">
-            <p
-              className="text-sm font-medium break-words"
-              style={{ fontSize: '12px' }}
-            >
+            <Typography className="break-words text-[12px]">
               {(data.type && data.file) || data.company
                 ? data.company
                 : 'Enterprise Solutions Corp.'}
-            </p>
-            <h1
-              className="text-lg font-bold block break-words"
-              style={{ fontSize: '16px' }}
-            >
+            </Typography>
+            <Typography tag="h1" className="font-bold text-[16px]">
               {(data.type && data.file) || data.pdfTitle
                 ? data.pdfTitle
                 : 'Yearly Review'}
-            </h1>
-            <p
-              className="text-sm font-medium break-words"
-              style={{ fontSize: '12px' }}
-            >
+            </Typography>
+            <Typography className="break-words text-[12px]">
               {(data.type && data.file) || data.description
                 ? data.description
                 : 'Our most successful year to date! Discover our unprecedented achievements in our yearly review.'}
-            </p>
+            </Typography>
           </div>
 
           <div className="absolute left-0 right-0 top-0 bottom-0 overflow-x-hidden h-full">
@@ -104,7 +95,7 @@ export function View({ data }) {
                 className="rounded-lg w-full h-full border-none"
               ></iframe>
             ) : (
-              <img
+              <Image
                 src="https://qr-code-koala.com/qrs-previews%2Fpdf-preview.webp"
                 alt="QR Code"
                 width={500}
@@ -122,38 +113,17 @@ export function View({ data }) {
               }}
               onClick={() => window.open(data.file)}
             >
-              <span className="truncate w-10/12">
+              <Typography className="truncate w-10/12">
                 {data.button || 'View PDF'}
-              </span>
+              </Typography>
             </button>
           </div>
           {(data.website || (!data.type && !data.file)) && (
-            <div
-              role="button"
-              className="w-full bg-white p-3 rounded-md flex gap-2 items-center justify-between border border-gray-300 group hover:cursor-pointer"
-            >
+            <div className="w-full bg-white p-3 rounded-md flex gap-2 items-center justify-between border border-gray-300 group hover:cursor-pointer">
               <div className="flex-1 truncate">
-                <span className="text-xs text-blue-500 group-hover:underline truncate">
+                <Typography className="text-xs text-blue-500 group-hover:underline truncate">
                   {data.website || 'https://example.com'}
-                </span>
-              </div>
-              <div className="flex-0 text-gray-500 group-hover:text-gray-400">
-                <svg
-                  stroke="currentColor"
-                  fill="currentColor"
-                  viewBox="0 0 512 512"
-                  height="1em"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fill="none"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="48"
-                    d="M184 112l144 144-144 144"
-                  />
-                </svg>
+                </Typography>
               </div>
             </div>
           )}

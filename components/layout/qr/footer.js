@@ -10,20 +10,25 @@ export function Footer() {
 
   const handleBack = () => {
     if (step > 1) {
-      const previousStep = step - 1 // Calculamos el paso anterior
-      setStep(previousStep) // Actualizamos el estado del paso
+      const previousStep = step - 1
+      setStep(previousStep)
+
+      // Verifica si qr-code-generator/[type] es la siguiente, si lo es agrega a la ruta el valor actual del form.type.
+
       router.push(
-        Stepper[previousStep - 1].link + (previousStep === 2 ? form.type : '')
-      ) // Navegamos a la ruta correspondiente
+        Stepper[previousStep - 1].link + (previousStep === 2 && form.type)
+      )
     }
   }
 
   const handleNext = () => {
     if (step < Stepper.length) {
-      const nextStep = step + 1 // Calculamos el próximo paso
-      setStep(nextStep) // Actualizamos el estado del paso
-      router.push(Stepper[nextStep - 1].link) // Navegamos a la ruta correspondiente
-      nextStep === Stepper.length && triggerUpdate() // Actualizamos el estado de la vista previa
+      const nextStep = step + 1
+      setStep(nextStep)
+
+      // Si la ruta es la ultima del formulario, actualiza los datos.
+      nextStep === Stepper.length && triggerUpdate()
+      router.push(Stepper[nextStep - 1].link)
     }
   }
 

@@ -24,9 +24,6 @@ export function FormProvider({ children }) {
   const [id, setId] = useState('')
   const [url, setUrl] = useState(null)
   const [loading, setLoading] = useState(false)
-
-  console.log(form)
-
   const [isFormValid, setIsFormValid] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [isUpdated, setIsUpdated] = useState(false)
@@ -39,16 +36,14 @@ export function FormProvider({ children }) {
     setIsFormValid(isValidForm)
   }, [form])
 
-  console.log(step)
-
   useEffect(() => {
-    const pathSegments = pathname.split('/') // Divide la ruta por "/"
+    const pathSegments = pathname.split('/')
     const typeParam =
       pathSegments[pathSegments.indexOf('qr-code-generator') + 1]
     if (typeParam) {
       setForm((prev) => ({
         ...prev,
-        type: typeParam // Asigna el parámetro "type" al formulario
+        type: typeParam
       }))
       setStep(2)
     }
@@ -60,7 +55,7 @@ export function FormProvider({ children }) {
       setIsSubmitted(true)
       addQr(form)
         .then((docRef) => {
-          setId(docRef.id) // Almacena el ID generado
+          setId(docRef.id) 
         })
         .catch((error) => {
           console.error('Error adding document: ', error)
@@ -71,7 +66,6 @@ export function FormProvider({ children }) {
     }
   }, [isFormValid, isSubmitted])
 
-  // Actualiza el documento una vez que se tenga el ID y se necesite actualizar con más datos
   useEffect(() => {
     if (id && isUpdated) {
       setLoading(true)
@@ -89,7 +83,6 @@ export function FormProvider({ children }) {
     }
   }, [id, isUpdated])
 
-  // Genera la URL una vez que se obtiene el ID
   useEffect(() => {
     if (id) {
       setUrl(`${window.location.origin}/qr-viewer/${id}`)
