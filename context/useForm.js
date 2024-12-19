@@ -30,12 +30,13 @@ export function FormProvider({ children }) {
 
   const pathname = usePathname()
 
-  // Valida si el formulario cumple los requisitos mínimos
+  // Valida si el formulario cumple los requisitos mínimos para ser enviado
   useEffect(() => {
     const isValidForm = form.type && form.file
     setIsFormValid(isValidForm)
   }, [form])
 
+  // Si la URL contiene un tipo de QR, se establece el tipo en el formulario y se cambia al paso 2 automáticamente
   useEffect(() => {
     const pathSegments = pathname.split('/')
     const typeParam =
@@ -49,6 +50,7 @@ export function FormProvider({ children }) {
     }
   }, [pathname])
 
+  // Si el formulario es válido y no ha sido enviado, se envía al servidor
   useEffect(() => {
     if (isFormValid && !isSubmitted) {
       setLoading(true)
@@ -66,6 +68,7 @@ export function FormProvider({ children }) {
     }
   }, [isFormValid, isSubmitted])
 
+  // Si la id del documento y el estado de actualización cambia, se actualiza y se envía al servidor
   useEffect(() => {
     if (id && isUpdated) {
       setLoading(true)
@@ -83,6 +86,7 @@ export function FormProvider({ children }) {
     }
   }, [id, isUpdated])
 
+  // Se guarda la id del documento en el estado y se genera la URL de visualización del QR
   useEffect(() => {
     if (id) {
       setUrl(`${window.location.origin}/qr-viewer/${id}`)
@@ -97,6 +101,7 @@ export function FormProvider({ children }) {
     }))
   }
 
+  // Actualiza el estado para obtener la ultima actualización del formulario y enviarla al servidor
   const triggerUpdate = () => {
     setIsUpdated(true)
   }

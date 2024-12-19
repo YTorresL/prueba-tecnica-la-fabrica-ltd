@@ -6,6 +6,7 @@ import Link from 'next/link'
 export function Header() {
   const { step, form, setStep } = useForm()
 
+  // Buscar el paso actual y obtener su información
   const currentStep = Stepper.find((s) => s.id === step)
 
   return (

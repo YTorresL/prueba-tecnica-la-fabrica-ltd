@@ -1,6 +1,6 @@
 import { usePathname } from 'next/navigation'
 import Image from 'next/image'
-import { Typography, TYPO_STYLES } from '@/components/common/typography'
+import { Typography } from '@/components/common/typography'
 
 const isColorDark = (color) => {
   const hexToRgb = (hex) => {

@@ -1,22 +1,10 @@
 'use client'
-import { useRouter } from 'next/navigation'
-import { useEffect } from 'react'
-import { useForm } from '@/hooks/useForm'
 import { Download } from '@/sections/qr/download'
 import Link from 'next/link'
 import { TYPO_STYLES, Typography } from '@/components/common/typography'
 import Image from 'next/image'
 
 export default function Page() {
-  const { form } = useForm()
-  const router = useRouter()
-
-  useEffect(() => {
-    if (!form.type || !form.file) {
-      router.push('/qr-code-generator')
-    }
-  }, [])
-
   return (
     <>
       <div className="custom-width space-y-5 md:space-y-7 w-full relative p-4 md:p-6">

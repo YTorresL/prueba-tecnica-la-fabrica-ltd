@@ -16,7 +16,7 @@ export function Footer() {
       // Verifica si qr-code-generator/[type] es la siguiente, si lo es agrega a la ruta el valor actual del form.type.
 
       router.push(
-        Stepper[previousStep - 1].link + (previousStep === 2 && form.type)
+        Stepper[previousStep - 1].link + (previousStep === 2 ? form.type : '')
       )
     }
   }
