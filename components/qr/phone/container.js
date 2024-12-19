@@ -2,7 +2,7 @@
 import { useForm } from '@/hooks/useForm'
 import { Button } from '@/components/ui/button'
 import { useEffect, useState } from 'react'
-import QRCode from 'react-qr-code'
+import { QRCodeSVG } from 'qrcode.react'
 import { View } from './view'
 import { usePathname } from 'next/navigation'
 import { Typography, TYPO_STYLES } from '@/components/common/typography'
@@ -93,18 +93,18 @@ export function Phone() {
 
           {qr && url && (
             <>
-              <QRCode value={url} size={180} />
-              {form.logo && (
-                <figure className="absolute w-16 h-16 overflow-hidden top-20 left-1/2 transform -translate-x-1/2">
-                  <Image
-                    src={form.logo}
-                    alt="logo"
-                    className="w-full h-full object-cover"
-                    height={64}
-                    width={64}
-                  />
-                </figure>
-              )}
+              <QRCodeSVG
+                value={url}
+                size={180}
+                imageSettings={
+                  form.logo && {
+                    src: form.logo,
+                    height: 50,
+                    width: 50,
+                    excavate: true
+                  }
+                }
+              />
             </>
           )}
         </div>

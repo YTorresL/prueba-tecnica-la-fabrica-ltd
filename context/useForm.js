@@ -26,7 +26,6 @@ export function FormProvider({ children }) {
   const [loading, setLoading] = useState(false)
   const [isFormValid, setIsFormValid] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
-  const [isUpdated, setIsUpdated] = useState(false)
 
   const pathname = usePathname()
 
@@ -57,7 +56,7 @@ export function FormProvider({ children }) {
       setIsSubmitted(true)
       addQr(form)
         .then((docRef) => {
-          setId(docRef.id) 
+          setId(docRef.id)
         })
         .catch((error) => {
           console.error('Error adding document: ', error)
@@ -67,24 +66,6 @@ export function FormProvider({ children }) {
         })
     }
   }, [isFormValid, isSubmitted])
-
-  // Si la id del documento y el estado de actualización cambia, se actualiza y se envía al servidor
-  useEffect(() => {
-    if (id && isUpdated) {
-      setLoading(true)
-      updateQr(id, form)
-        .then(() => {
-          console.log('Document successfully updated!')
-          setIsUpdated(false)
-        })
-        .catch((error) => {
-          console.error('Error updating document: ', error)
-        })
-        .finally(() => {
-          setLoading(false)
-        })
-    }
-  }, [id, isUpdated])
 
   // Se guarda la id del documento en el estado y se genera la URL de visualización del QR
   useEffect(() => {
@@ -101,9 +82,18 @@ export function FormProvider({ children }) {
     }))
   }
 
-  // Actualiza el estado para obtener la ultima actualización del formulario y enviarla al servidor
-  const triggerUpdate = () => {
-    setIsUpdated(true)
+  // Actualiza el documento en la base de datos con los nuevos valores del formulario
+  const qrUpdate = () => {
+    updateQr(id, form)
+      .then(() => {
+        console.log('Document successfully updated!')
+      })
+      .catch((error) => {
+        console.error('Error updating document: ', error)
+      })
+      .finally(() => {
+        setLoading(false)
+      })
   }
 
   return (
@@ -116,7 +106,7 @@ export function FormProvider({ children }) {
         handleChange,
         url,
         loading,
-        triggerUpdate
+        qrUpdate
       }}
     >
       {children}

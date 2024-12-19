@@ -5,7 +5,7 @@ import { Stepper } from '@/data/qrHeader'
 import { TYPO_STYLES, Typography } from '@/components/common/typography'
 
 export function Footer() {
-  const { form, setStep, step, triggerUpdate, url } = useForm()
+  const { form, setStep, step, qrUpdate, url } = useForm()
   const router = useRouter()
 
   const handleBack = () => {
@@ -27,7 +27,7 @@ export function Footer() {
       setStep(nextStep)
 
       // Si la ruta es la ultima del formulario, actualiza los datos.
-      nextStep === Stepper.length && triggerUpdate()
+      nextStep === Stepper.length && qrUpdate()
       router.push(Stepper[nextStep - 1].link)
     }
   }
