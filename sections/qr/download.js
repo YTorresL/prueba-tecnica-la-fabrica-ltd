@@ -1,4 +1,4 @@
-import QRCode from 'react-qr-code'
+import { QRCodeSVG } from 'qrcode.react'
 import { useForm } from '@/hooks/useForm'
 import Link from 'next/link'
 import { TYPO_STYLES, Typography } from '@/components/common/typography'
@@ -27,7 +27,11 @@ export function Download() {
         </div>
         {url && (
           <Link href={url}>
-            <QRCode value={url} size={300} className="mx-auto cursor-pointer" />
+            <QRCodeSVG
+              value={url}
+              size={300}
+              className="mx-auto cursor-pointer"
+            />
           </Link>
         )}
 

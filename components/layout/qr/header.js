@@ -21,29 +21,51 @@ export function Header() {
       </Link>
       <ol className="flex items-center w-full p-3 space-x-2 justify-center text-sm font-medium text-center sm:p-4 sm:space-x-4 rtl:space-x-reverse">
         {Stepper.map((step) => (
-          <Link
-            className={`flex items-center ${
-              currentStep.id >= step.id
-                ? 'text-black'
-                : 'text-gray-300 pointer-events-none'
-            }`}
-            key={step.id}
-            href={
-              form.type.length && step.id === 2
-                ? step.link + form.type
-                : step.link
-            }
-            onClick={() => setStep(step.id)}
-          >
-            <span
-              className={`flex items-center justify-center w-5 h-5 text-xs me-2 ${
-                currentStep.id >= step.id ? 'bg-black' : 'bg-gray-300'
-              } rounded-full shrink-0 text-white`}
+          <div key={step.id} className="flex items-center">
+            <Link
+              className={`flex items-center ${
+                currentStep.id >= step.id
+                  ? 'text-black'
+                  : 'text-gray-300 pointer-events-none'
+              }`}
+              href={
+                form.type.length && step.id === 2
+                  ? step.link + form.type
+                  : step.link
+              }
+              onClick={() => setStep(step.id)}
             >
-              {step.id}
-            </span>
-            {step.title}
-          </Link>
+              <span
+                className={`flex items-center justify-center w-5 h-5 text-xs me-2 ${
+                  currentStep.id >= step.id ? 'bg-black' : 'bg-gray-300'
+                } rounded-full shrink-0 text-white`}
+              >
+                {step.id === 1 && currentStep != 1 ? '✓' : step.id}
+              </span>
+              {step.title}
+            </Link>
+            {step.id < Stepper.length && (
+              <div className="w-14 flex items-center ml-3">
+                <div
+                  className={`h-px w-full flex-1 ${
+                    currentStep.id > step.id ? 'bg-black' : 'bg-gray-300'
+                  }`}
+                ></div>
+                <div
+                  className="triangle-right"
+                  style={
+                    currentStep.id > step.id
+                      ? {
+                          borderLeftColor: '#000'
+                        }
+                      : {
+                          borderLeftColor: '#ccc'
+                        }
+                  }
+                ></div>
+              </div>
+            )}
+          </div>
         ))}
       </ol>
     </header>

@@ -18,7 +18,10 @@ export function Hero() {
         <Typography tag={'h1'} variant={TYPO_STYLES.VARIANT.TITLE}>
           Powerful Yet Simple QR Code Generator
         </Typography>
-        <Typography variant={TYPO_STYLES.VARIANT.BODY}>
+        <Typography
+          variant={TYPO_STYLES.VARIANT.CAPTION}
+          className="!font-normal"
+        >
           Easily create, track, and manage your QR codes.
         </Typography>
       </div>

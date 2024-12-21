@@ -1,7 +1,7 @@
 import { footer } from '@/data/footer'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Typography } from '@/components/common/typography'
+import { Typography, TYPO_STYLES } from '@/components/common/typography'
 
 export function Footer() {
   return (
@@ -19,10 +19,15 @@ export function Footer() {
                     src="/qr_koala_logo.webp"
                   />
                 </figure>
-                <p className="font-black text-xl mt-1 text-inherit">QR KOALA</p>
+                <Typography
+                  variant={TYPO_STYLES.VARIANT.CAPTION}
+                  className="flex-shrink-0"
+                >
+                  QR KOALA
+                </Typography>
               </div>
             </div>
-            <Typography className="md:w-8/12">
+            <Typography className="md:w-8/12" >
               Powerful, yet simple QR code generator suited to all your QR code
               needs as a business or as an individual.
             </Typography>
