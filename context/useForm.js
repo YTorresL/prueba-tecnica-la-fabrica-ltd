@@ -24,43 +24,39 @@ export function FormProvider({ children }) {
   const [id, setId] = useState('')
   const [url, setUrl] = useState(null)
   const [loading, setLoading] = useState(false)
-
-  console.log(form)
-
   const [isFormValid, setIsFormValid] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
-  const [isUpdated, setIsUpdated] = useState(false)
 
   const pathname = usePathname()
 
-  // Valida si el formulario cumple los requisitos mínimos
+  // Valida si el formulario cumple los requisitos mínimos para ser enviado
   useEffect(() => {
     const isValidForm = form.type && form.file
     setIsFormValid(isValidForm)
   }, [form])
 
-  console.log(step)
-
+  // Si la URL contiene un tipo de QR, se establece el tipo en el formulario y se cambia al paso 2 automáticamente
   useEffect(() => {
-    const pathSegments = pathname.split('/') // Divide la ruta por "/"
+    const pathSegments = pathname.split('/')
     const typeParam =
       pathSegments[pathSegments.indexOf('qr-code-generator') + 1]
     if (typeParam) {
       setForm((prev) => ({
         ...prev,
-        type: typeParam // Asigna el parámetro "type" al formulario
+        type: typeParam
       }))
       setStep(2)
     }
   }, [pathname])
 
+  // Si el formulario es válido y no ha sido enviado, se envía al servidor
   useEffect(() => {
     if (isFormValid && !isSubmitted) {
       setLoading(true)
       setIsSubmitted(true)
       addQr(form)
         .then((docRef) => {
-          setId(docRef.id) // Almacena el ID generado
+          setId(docRef.id)
         })
         .catch((error) => {
           console.error('Error adding document: ', error)
@@ -71,25 +67,7 @@ export function FormProvider({ children }) {
     }
   }, [isFormValid, isSubmitted])
 
-  // Actualiza el documento una vez que se tenga el ID y se necesite actualizar con más datos
-  useEffect(() => {
-    if (id && isUpdated) {
-      setLoading(true)
-      updateQr(id, form)
-        .then(() => {
-          console.log('Document successfully updated!')
-          setIsUpdated(false)
-        })
-        .catch((error) => {
-          console.error('Error updating document: ', error)
-        })
-        .finally(() => {
-          setLoading(false)
-        })
-    }
-  }, [id, isUpdated])
-
-  // Genera la URL una vez que se obtiene el ID
+  // Se guarda la id del documento en el estado y se genera la URL de visualización del QR
   useEffect(() => {
     if (id) {
       setUrl(`${window.location.origin}/qr-viewer/${id}`)
@@ -104,8 +82,18 @@ export function FormProvider({ children }) {
     }))
   }
 
-  const triggerUpdate = () => {
-    setIsUpdated(true)
+  // Actualiza el documento en la base de datos con los nuevos valores del formulario
+  const qrUpdate = () => {
+    updateQr(id, form)
+      .then(() => {
+        console.log('Document successfully updated!')
+      })
+      .catch((error) => {
+        console.error('Error updating document: ', error)
+      })
+      .finally(() => {
+        setLoading(false)
+      })
   }
 
   return (
@@ -118,7 +106,7 @@ export function FormProvider({ children }) {
         handleChange,
         url,
         loading,
-        triggerUpdate
+        qrUpdate
       }}
     >
       {children}

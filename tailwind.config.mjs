@@ -5,12 +5,13 @@ const config = {
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
-    './sections/**/*.{js,ts,jsx,tsx,mdx}'
+    './sections/**/*.{js,ts,jsx,tsx,mdx}',
+    './data/**/*.{js,ts,jsx,tsx,mdx}'
   ],
   theme: {
     extend: {
       backgroundImage: {
-        phone: "url('/phone.png')"
+        phone: "url('/phone.webp')"
       },
       keyframes: {
         'accordion-down': {

@@ -8,7 +8,10 @@ export function Qr() {
         <Typography tag={'h2'} variant={TYPO_STYLES.VARIANT.SUBTITLE}>
           QR Codes For Everything
         </Typography>
-        <Typography variant={TYPO_STYLES.VARIANT.BODY}>
+        <Typography
+          variant={TYPO_STYLES.VARIANT.CAPTION}
+          className="!font-normal"
+        >
           Easily create, track, and manage your QR codes.
         </Typography>
       </div>

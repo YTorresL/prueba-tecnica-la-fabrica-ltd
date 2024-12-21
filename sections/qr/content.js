@@ -1,15 +1,11 @@
 import { Pdf } from '@/components/qr/content/pdf'
-import { VCard } from '@/components/qr/content/vCard'
-import { Website } from '@/components/qr/content/website'
 import { Phone } from '@/components/qr/phone/container'
 
 export const ComponentsMap = {
-  website: Website,
-  pdf: Pdf,
-  vcard: VCard
+  pdf: Pdf
 }
 export function Content({ type }) {
-  const Component = ComponentsMap[type]
+  const Component = ComponentsMap[type] || (() => null)
   return (
     <div className="flex">
       <Component />

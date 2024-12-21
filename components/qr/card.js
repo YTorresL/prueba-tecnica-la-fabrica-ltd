@@ -4,19 +4,23 @@ import { useRouter } from 'next/navigation'
 import { Typography, TYPO_STYLES } from '@/components/common/typography'
 
 export function Card({ data }) {
+
+  // data es un array de objetos que contiene la información de cada tipo de formulario
+
   const router = useRouter()
   const { setForm, setStep } = useForm()
 
+  // Navega a la página del formulario correspondiente al tipo de formulario y actualiza el estado del formulario
   const handleClick = () => {
     setStep(2)
     router.push(data.link)
-    setForm((prev) => ({ ...prev, type: data.slug }))
   }
 
   return (
     <div
       className="flex md:block items-center justify-between p-5 hover:border-black border hover:bg-black transition-all h-full group bg-white rounded-md shadow"
       onClick={() => handleClick()}
+      // Actualiza el estado del formulario al pasar el mouse sobre el elemento para previsualizar el tipo de formulario en el telefono.
       onMouseOver={() => setForm((prev) => ({ ...prev, type: data.slug }))}
       onMouseLeave={() => setForm((prev) => ({ ...prev, type: '' }))}
       href={data.link}

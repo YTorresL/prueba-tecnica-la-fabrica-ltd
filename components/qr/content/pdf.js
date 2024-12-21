@@ -178,16 +178,16 @@ export function Pdf() {
           <AccordionContent>
             <div className="relative group w-full cursor-pointer border-t pt-8">
               <div className="grid place-content-center gap-3 py-8 border-2 bg-opacity-5 border-dashed rounded-md w-full">
-                <div className="text-primary mx-auto">
+                <div className="mx-auto">
                   <IconUpload className="w-10 h-10" />
                 </div>
                 <Button>Select your PDF</Button>
-                <span className="font-normal text-center text-sm text-primary">
+                <Typography tag="span" className="text-center text-sm">
                   Or drop your files here
-                </span>
-                <span className="font-semibold text-xs text-center text-black">
+                </Typography>
+                <Typography tag="span" className="text-center text-xs">
                   Maximum size: 100 MB
-                </span>
+                </Typography>
               </div>
               <input
                 className="appearance-none absolute opacity-0 top-0 bottom-0 left-0 right-0 z-10 cursor-pointer"
@@ -224,7 +224,9 @@ export function Pdf() {
             </figure>
 
             <div className="w-full ml-5">
-              <h2 className="text-lg font-semibold">Design</h2>
+              <Typography tag="h2" variant={TYPO_STYLES.VARIANT.BODY}>
+                Design
+              </Typography>
               <Typography
                 variant={TYPO_STYLES.VARIANT.MINI}
                 className="font-normal text-gray-400"
@@ -299,25 +301,7 @@ export function Pdf() {
                       </div>
                     </div>
                   </div>
-                  <div className="relative w-full sm:w-fit grid place-content-center">
-                    <div className="px-5 sm:px-0 bg-gray-100 z-[1]">
-                      <div
-                        className="h-[50.33px] w-[50.33px] sm:mt-7 bg-primary rounded-full grid place-content-center"
-                        role="button"
-                      >
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 1200 1200"
-                          width="30"
-                          height="30"
-                          fill="#FFFFFF"
-                          className="transition-all rotate-90 sm:rotate-0"
-                        >
-                          <path d="M439.5 431.45h382.82L718.48 535.27c-10.547 10.535-10.547 27.637 0 38.184 5.27 5.27 12.18 7.906 19.094 7.906 6.91 0 13.812-2.64 19.094-7.906l149.91-149.9a27.471 27.471 0 0 0 3.348-4.078c.254-.395.433-.828.672-1.235.671-1.105 1.32-2.207 1.812-3.406.238-.539.336-1.14.54-1.703.37-1.105.769-2.183 1.007-3.336.348-1.738.539-3.527.539-5.34s-.191-3.601-.54-5.34c-.237-1.163-.636-2.242-1.007-3.335-.203-.563-.3-1.153-.539-1.703-.492-1.2-1.152-2.305-1.812-3.407-.239-.406-.407-.84-.672-1.234a26.807 26.807 0 0 0-3.348-4.078l-149.89-149.91c-10.547-10.547-27.637-10.547-38.184 0-10.547 10.535-10.547 27.637 0 38.184l103.81 103.81h-382.82c-118.01 0-214.01 96-214.01 214.01 0 14.914 12.098 27 27 27s27-12.086 27-27c0-88.227 71.773-160.01 160.01-160.01zm508.01 150.09c-14.902 0-27 12.086-27 27 0 88.234-71.773 160.01-160.01 160.01H377.68l103.84-103.82c10.547-10.535 10.547-27.637 0-38.184s-27.637-10.547-38.184 0l-149.92 149.91a26.814 26.814 0 0 0-3.348 4.094c-.254.37-.406.781-.636 1.176-.684 1.117-1.344 2.242-1.848 3.468-.227.528-.324 1.118-.516 1.668-.383 1.106-.793 2.207-1.03 3.372-.349 1.753-.54 3.527-.54 5.34s.191 3.59.54 5.34c.237 1.163.648 2.269 1.03 3.37.192.551.29 1.13.516 1.668.504 1.223 1.176 2.34 1.848 3.469.226.383.382.805.636 1.176a27.726 27.726 0 0 0 3.348 4.094l149.89 149.89c5.27 5.27 12.18 7.906 19.094 7.906 6.91 0 13.812-2.64 19.094-7.906 10.547-10.535 10.547-27.637 0-38.184l-103.81-103.81h382.82c118.01 0 214.01-96 214.01-214.01 0-14.941-12.098-27.027-27-27.027z"></path>
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
+
                   <div className="w-full">
                     <label
                       className="block text-gray-500 mb-2 text-left text-sm break-words font-semibold"
@@ -364,7 +348,9 @@ export function Pdf() {
             </figure>
 
             <div className="w-full ml-5">
-              <h2 className="text-lg font-semibold">PDF information</h2>
+              <Typography tag="h2" variant={TYPO_STYLES.VARIANT.BODY}>
+                PDF information
+              </Typography>
               <Typography
                 variant={TYPO_STYLES.VARIANT.MINI}
                 className="font-normal text-gray-400"

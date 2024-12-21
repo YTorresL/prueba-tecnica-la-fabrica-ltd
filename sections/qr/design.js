@@ -91,16 +91,16 @@ export function Design() {
             <AccordionContent>
               <div className="relative group w-full cursor-pointer border-t pt-8">
                 <div className="grid place-content-center gap-3 py-8 border-2 bg-opacity-5 border-dashed rounded-md w-full">
-                  <div className="text-primary mx-auto">
+                  <div className=" mx-auto">
                     <IconUpload className="w-10 h-10" />
                   </div>
                   <Button>Select your logo</Button>
-                  <span className="font-normal text-center text-sm text-primary">
+                  <Typography tag="span" className="text-center text-sm">
                     Or drop your files here
-                  </span>
-                  <span className="font-semibold text-xs text-center text-black">
+                  </Typography>
+                  <Typography tag="span" className="text-center text-xs">
                     Maximum size: 100 MB
-                  </span>
+                  </Typography>
                 </div>
                 <input
                   className="appearance-none absolute opacity-0 top-0 bottom-0 left-0 right-0 z-10 cursor-pointer"

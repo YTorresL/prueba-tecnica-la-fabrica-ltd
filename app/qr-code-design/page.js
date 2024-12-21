@@ -3,21 +3,8 @@ import { Footer } from '@/components/layout/qr/footer'
 import { Header } from '@/components/layout/qr/header'
 import { Design } from '@/sections/qr/design'
 import { Typography, TYPO_STYLES } from '@/components/common/typography'
-import { useForm } from '@/hooks/useForm'
-import { useEffect } from 'react'
-import { useRouter } from 'next/navigation'
 
 export default function Page() {
-  const { form } = useForm()
-
-  const router = useRouter()
-
-  useEffect(() => {
-    if (!form.type || !form.file) {
-      router.push('/qr-code-generator')
-    }
-  }, [form])
-
   return (
     <>
       <Header />

@@ -1,11 +1,12 @@
 'use client'
 import { useForm } from '@/hooks/useForm'
 import { Button } from '@/components/ui/button'
-import { use, useEffect, useState } from 'react'
-import QRCode from 'react-qr-code'
+import { useEffect, useState } from 'react'
+import { QRCodeSVG } from 'qrcode.react'
 import { View } from './view'
 import { usePathname } from 'next/navigation'
 import { Typography, TYPO_STYLES } from '@/components/common/typography'
+import Image from 'next/image'
 
 export function Phone() {
   const { form, url } = useForm()
@@ -71,10 +72,12 @@ export function Phone() {
           {isType && preview && (
             <div className="p-6 text-center space-y-3">
               <figure className="w-24 mx-auto">
-                <img
+                <Image
                   src="/qr_koala_logo.webp"
                   alt="hero"
                   className="w-full h-auto object-contain"
+                  width={100}
+                  height={100}
                 />
               </figure>
               <Typography
@@ -88,18 +91,20 @@ export function Phone() {
 
           {!isType && preview && <View data={form} />}
 
-          {qr && (
+          {qr && url && (
             <>
-              <QRCode value={url} size={180} />
-              {form.logo && (
-                <figure className="absolute w-16 h-16 orverflow-hidden top-20 left-1/2 transform -translate-x-1/2">
-                  <img
-                    src={form.logo}
-                    alt="logo"
-                    className="w-full h-full object-cover"
-                  />
-                </figure>
-              )}
+              <QRCodeSVG
+                value={url}
+                size={180}
+                imageSettings={
+                  form.logo && {
+                    src: form.logo,
+                    height: 50,
+                    width: 50,
+                    excavate: true
+                  }
+                }
+              />
             </>
           )}
         </div>
